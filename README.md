@@ -1,4 +1,4 @@
-An example of Private Router with
+An example of Private Route with
 * react-router v6
 * redux-toolkit
 
