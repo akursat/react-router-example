@@ -1,6 +1,7 @@
 An example of Private Route with
 * react-router v6
 * redux-toolkit
+
 Demo: https://codesandbox.io/s/eager-goldwasser-708wb
 
 # Getting Started with Create React App
