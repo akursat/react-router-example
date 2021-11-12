@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, Route, Routes } from 'react-router-dom'
 import { PrivateRoute } from './PrivateRoute'
 import NotFound from './pages/NotFound'
-import Home from './pages/Home'
+import Login from './pages/Login'
 import Users from './pages/Users'
 import Dashboard from './pages/Dashboard'
 import { ROLE } from './features/auth/auth'
@@ -24,7 +24,7 @@ function Header() {
         <div className="header-logo">Private Route Example</div>
         <div className="header-nav">
           <Link className="link" to="/">
-            Home
+            Login
           </Link>
           <Link className="link" to="/dashboard">
             Dashboard
@@ -54,10 +54,24 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <PrivateRoute path="dashboard" element={<Dashboard />} roles={[ROLE.ADMIN]} />
-        <PrivateRoute path="users" element={<Users />} roles={[ROLE.ADMIN, ROLE.USER]} />
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Login />} />
         <Route path="*" element={<NotFound />} />
+        <Route
+          path="dashboard"
+          element={
+            <PrivateRoute roles={[ROLE.ADMIN]}>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="users"
+          element={
+            <PrivateRoute roles={[ROLE.ADMIN, ROLE.USER]}>
+              <Users />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </div>
   )
