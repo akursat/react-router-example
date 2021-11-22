@@ -5,18 +5,18 @@ import { ROLE } from './features/auth/auth'
 import { selectCurrentUser, selectIsAuthenticated } from './features/auth/authSlice'
 
 interface Props {
-  children: JSX.Element
+  component: React.ComponentType
   path?: string
   roles: Array<ROLE>
 }
 
-export const PrivateRoute: React.FC<Props> = ({ children, roles }) => {
+export const PrivateRoute: React.FC<Props> = ({ component: RouteComponent, roles }) => {
   const user = useSelector(selectCurrentUser)
   const isAuthenticated = useSelector(selectIsAuthenticated)
   const userHasRequiredRole = user && roles.includes(user.role) ? true : false
 
   if (isAuthenticated && userHasRequiredRole) {
-    return children
+    return <RouteComponent />
   }
 
   if (isAuthenticated && !userHasRequiredRole) {

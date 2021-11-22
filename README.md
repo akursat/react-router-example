@@ -1,8 +1,9 @@
 An example of Private Route with
-* react-router v6
-* redux-toolkit
 
-Demo: https://codesandbox.io/s/eager-goldwasser-708wb
+- react-router v6
+- redux-toolkit
+
+Demo: https://codesandbox.io/s/react-router-v6-nejcy?file=/src/App.tsx
 
 # Getting Started with Create React App
 
@@ -32,4 +33,3 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
-

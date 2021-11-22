@@ -58,19 +58,11 @@ function App() {
         <Route path="*" element={<NotFound />} />
         <Route
           path="dashboard"
-          element={
-            <PrivateRoute roles={[ROLE.ADMIN]}>
-              <Dashboard />
-            </PrivateRoute>
-          }
+          element={<PrivateRoute roles={[ROLE.ADMIN]} component={Dashboard} />}
         />
         <Route
           path="users"
-          element={
-            <PrivateRoute roles={[ROLE.ADMIN, ROLE.USER]}>
-              <Users />
-            </PrivateRoute>
-          }
+          element={<PrivateRoute roles={[ROLE.ADMIN, ROLE.USER]} component={Users} />}
         />
       </Routes>
     </div>
